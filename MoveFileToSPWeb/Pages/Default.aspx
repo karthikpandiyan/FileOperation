@@ -7,10 +7,10 @@
     <title></title>
 </head>
 <body>
-    <asp:Button ID="btnMove" runat="server" Text="MoveFilesToSP" OnClick="btnMove_Click" />
+   
     <form id="form1" runat="server">
     <div>
-    
+     <asp:Button ID="btnMove" runat="server" Text="MoveFilesToSP" OnClick="btnMove_Click" />
     </div>
     </form>
 </body>
