@@ -1,0 +1,12 @@
+
+Dear Bill,
+
+I have added myname also in the admin field for the Email Template list. I am receiving emails properly. I have attached the screeshot of the mail that i received. 
+Your name is found only in the admin field of the Email Template list. So you will receive only one consolidated email.Can you please confirm whether you are receiving mail or not?
+
+Please find below the webjob details.
+Webjob Name : PublishedContentExpirationReminderJob under "jci-apps-webjobs-qa" website.
+
+
+
+
