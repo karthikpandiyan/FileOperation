@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.Web.Hosting;
+using System.IO;
+
 namespace MoveFileToSPWeb
 {
     public partial class Default : System.Web.UI.Page
@@ -42,7 +45,25 @@ namespace MoveFileToSPWeb
 
         protected void btnMove_Click(object sender, EventArgs e)
         {
+            var spContext = SharePointContextProvider.Current.GetSharePointContext(Context);
 
-        }
+            using (var clientContext = spContext.CreateUserClientContextForSPHost())
+            {
+                //ctx.Web.UploadDocumentToLibrary(HostingEnvironment.MapPath(string.Format("~/{0}", "Resources/SP2013_LargeFile.pptx")), "Docs", true);
+                //lblStatus1.Text = "Document has been uploaded to host web to new library called Docs, which was created unless it already existed.";
+
+                using (var fs = new FileStream(HostingEnvironment.MapPath(string.Format("~/{0}", "Files/Bill.txt")), FileMode.Open))
+           {
+               var fi = new FileInfo("Bill");
+               var list = clientContext.Web.Lists.GetByTitle("FileDocLib");
+               clientContext.Load(list.RootFolder);
+               clientContext.ExecuteQuery();
+               var fileUrl = String.Format("{0}/{1}", list.RootFolder.ServerRelativeUrl, fi.Name);
+
+               Microsoft.SharePoint.Client.File.SaveBinaryDirect(clientContext, fileUrl, fs, true);
+            }
+       }
+            }
+        
     }
 }
