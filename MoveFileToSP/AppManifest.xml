@@ -4,7 +4,7 @@
      Name="MoveFileToSP"
      ProductID="{51200958-59fc-41b8-9db5-f9f2aee4f245}"
      Version="1.0.0.0"
-     SharePointMinVersion="15.0.0.0"
+     SharePointMinVersion="16.0.0.0"
 >
   <Properties>
     <Title>MoveFileToSP</Title>
