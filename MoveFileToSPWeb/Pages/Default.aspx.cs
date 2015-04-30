@@ -39,5 +39,10 @@ namespace MoveFileToSPWeb
                 Response.Write(clientContext.Web.Title);
             }
         }
+
+        protected void btnMove_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
